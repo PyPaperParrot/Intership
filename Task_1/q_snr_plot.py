@@ -16,5 +16,4 @@ SNR = np.linspace(SNR_borders[0], SNR_borders[1], n_steps)
 SNR = np.flip(SNR)
 
 for clf in clf_names:
-    Q_SNR_plot('quantiles_%s.txt' % clf, SNR)
-
+    Q_SNR_plot('quantiles_%s.txt' % clf, SNR, clf)

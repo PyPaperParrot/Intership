@@ -67,9 +67,11 @@ def NN_Quantile(model, batch_size, epochs, dir_path):
     return IQR_array
 
 
-def Q_SNR_plot(quantiles_path, SNR):
+def Q_SNR_plot(quantiles_path, SNR, name):
     quantiles = np.loadtxt(quantiles_path)
     quantiles = quantiles.transpose()
     df = pd.DataFrame(quantiles, columns=SNR)
-    df.plot.box()
+    ax = df.plot.box(title=name)
+    ax.set_xlabel('SNR (дБ)')
+    ax.set_ylabel('f1_metric')
     plt.show()
